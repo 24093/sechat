@@ -1,0 +1,50 @@
+﻿<Window x:Class="sechat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="sechat" Height="350" Width="525" Loaded="Window_Loaded"
+        MinHeight="150" MinWidth="250"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="100" />
+        </Grid.ColumnDefinitions>
+        
+        <Menu Grid.Row="0" Grid.ColumnSpan="2" Height="23">
+            <MenuItem Header="Datei">
+                <MenuItem Name="SaveLogMenuItem" Header="Speichern unter..." Click="SaveLogMenuItem_Click" />
+            </MenuItem>
+            <MenuItem Header="Verbindung">
+                <MenuItem Name="ConnectionMenuItem" Header="Einstellungen..." Click="ConnectionMenuItem_Click" />
+                <MenuItem Name="RunServerMenuItem" Header="Server starten" Click="RunServerMenuItem_Click" />
+            </MenuItem>            
+        </Menu>
+    
+        <ListView Name="ChatLogListView" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" 
+                  IsEnabled="False" BorderThickness="0">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="ChatMessageViewModel">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="&lt;" />
+                        <TextBlock Text="{Binding SenderText}" 
+                                   Foreground="{Binding SenderTextBrush}" />
+                        <TextBlock Text="> " />
+                        <TextBlock Text="{Binding MessageText}" 
+                                   Foreground="{Binding MessageTextBrush}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <TextBox Name="ChatInputTextBox" Grid.Column="0" Grid.Row="2" Height="23" Margin="10,0,10,0" IsEnabled="False"></TextBox>
+        
+        <Button Name="ChatSendInputButton" Grid.Column="1" Grid.Row="2" Width="80" Height="23" Click="ChatSendInputButton_Click" IsDefault="True" IsEnabled="False">Senden</Button>
+        
+    </Grid>
+</Window>

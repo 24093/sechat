@@ -1,0 +1,79 @@
+﻿<Window x:Class="sechat.ConnectionWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Verbindungseinstellungen" Height="380" Width="300" ResizeMode="NoResize" WindowStyle="ToolWindow" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="100" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        
+        <GroupBox Header="Empfangen an" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="IP-Adresse" VerticalAlignment="Center" />
+                <TextBox Name="ServerHostTextBox" Grid.Column="1" Height="23" Text="127.0.0.1" />
+
+                <TextBlock Text="Port" VerticalAlignment="Center" Grid.Row="1" />
+                <TextBox Name="ServerPortTextBox" Grid.Column="1" Grid.Row="1" Height="23" Text="31338" />
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Senden an" Grid.Row="1" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="IP-Adresse" VerticalAlignment="Center" />
+                <TextBox Name="ClientHostTextBox" Grid.Column="1" Height="23" Text="127.0.0.1" />
+
+                <TextBlock Text="Port" VerticalAlignment="Center" Grid.Row="1" />
+                <TextBox Name="ClientPortTextBox" Grid.Column="1" Grid.Row="1" Height="23" Text="31338" />
+
+            </Grid>
+        </GroupBox>
+
+        <GroupBox Header="Weitere Einstellungen" Grid.Row="2" Margin="5">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30" />
+                    <RowDefinition Height="30" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Name" VerticalAlignment="Center" />
+                <TextBox Name="NameTextBox" Grid.Column="1" Height="23" />
+
+                <TextBlock Text="Schlüssel" VerticalAlignment="Center" Grid.Row="1" />
+                <TextBox Name="KeyTextBox" Grid.Column="1" Grid.Row="1" Height="23" />
+
+            </Grid>
+        </GroupBox>
+
+        <StackPanel Grid.Row="23" Orientation="Horizontal" HorizontalAlignment="Right" Margin="5">
+            <Button Name="OkButton" Width="80" Height="23" Margin="0,0,10,0" Click="OkButton_Click" IsDefault="True">OK</Button>
+            <Button Name="CancelButton" Width="80" Height="23" Click="CancelButton_Click" IsCancel="True">Abbrechen</Button>
+        </StackPanel>
+    </Grid>
+</Window>
